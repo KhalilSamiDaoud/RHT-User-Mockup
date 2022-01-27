@@ -3,7 +3,7 @@
 # RHT-User-Mockup
 Rides To Health facility arrival / departure dashboard front-end mock-up.
 
-The dashboard uses a simple API that provides some sample data, not all fields are populated from the API however.
+The dashboard uses a simple API that provides some sample data, however, not all fields are populated from the API.
 
 # Screenshots
 
