@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RTH Dialysis Center Dashboard</title>
+
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" href="css/styles.css" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
+    </head>
+    <body class="scrollbar-primary">
+        <nav class="nav-bar">
+            <div class="nav-button" data-tooltip="home">
+                <span class="material-icons">home</span>
+            </div>
+            <div class="nav-button" data-tooltip="dashboard">
+                <span class="material-icons">dashboard</span>
+            </div>
+            <div class="nav-button" data-tooltip="settings">
+                <span class="material-icons">settings</span>
+            </div>
+            <div class="nav-button" data-tooltip="info">
+                <span class="material-icons">info</span>
+            </div>
+        </nav>
+
+        <header class="header-bar">
+            <img src="media/header_logo.png" alt="RTH Logo" />
+
+            <button class="text-button push-right">appointments</button>
+            <button class="text-button">alerts</button>
+
+            <div class="profile-container">
+                <div class="profile-info">
+                    <span class="profile-name">Khalil Daoud</span>
+                    <span class="profile-type">Admin</span>
+                </div>
+                <span class="profile-icon material-icons">account_circle</span>
+            </div>
+        </header>
+
+        <main class="main-container">
+            <div class="lists-container">
+                <div id="arivals" class="trip-list">
+                    <h1 class="trip-list-header">Arivals</h1>
+                    <ul id="arivals_list" class="scrollbar-primary">
+                    </ul>
+                </div>
+
+                <div id="departures" class="trip-list">
+                    <h1 class="trip-list-header">Departures</h1>
+                    <ul id="departures_list" class="scrollbar-primary">
+                    </ul>
+                </div>
+            </div>
+        </main>
+
+        <script type="module" src="js/main.js"></script>
+    </body>
+</html>
