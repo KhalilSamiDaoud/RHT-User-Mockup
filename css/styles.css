@@ -85,6 +85,11 @@ body {
   gap: 10px;
 }
 
+.header-text {
+  font-size: 24px !important;
+  color: #757575;
+}
+
 .profile-container {
   margin-left: 75px;
   cursor: pointer;
@@ -175,6 +180,23 @@ body {
 .trip-list-header {
   color: #757575;
   border-bottom: 1px solid #e0e0e0;
+}
+
+.trip-list-header-icon {
+  float: right;
+  vertical-align: middle;
+  cursor: pointer;
+  font-size: 32px !important;
+  margin-right: 10px;
+  color: var(--secondary-theme);
+}
+
+.trip-list-header-icon:last-child {
+  margin-right: 25px;
+}
+
+.trip-list-header-icon:hover {
+  color: var(--primary-theme);
 }
 
 .trip-entry {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US" xml:lang="en-US">
     <head>
         <title>RTH Dialysis Center Dashboard</title>
 
@@ -30,6 +30,9 @@
         <header class="header-bar">
             <img src="media/header_logo.png" alt="RTH Logo" />
 
+            <span class="header-text material-icons">arrow_forward_ios</span>
+            <span class="header-text">Arivals / Departures</span>
+
             <button class="text-button push-right">appointments</button>
             <button class="text-button">alerts</button>
 
@@ -45,13 +48,21 @@
         <main class="main-container">
             <div class="lists-container">
                 <div id="arivals" class="trip-list">
-                    <h1 class="trip-list-header">Arivals</h1>
+                    <h1 class="trip-list-header">
+                        Arivals 
+                        <span class="material-icons trip-list-header-icon">settings</span>
+                        <span class="material-icons trip-list-header-icon">search</span>
+                    </h1>
                     <ul id="arivals_list" class="scrollbar-primary">
                     </ul>
                 </div>
 
                 <div id="departures" class="trip-list">
-                    <h1 class="trip-list-header">Departures</h1>
+                    <h1 class="trip-list-header">
+                        Departures
+                        <span class="material-icons trip-list-header-icon">settings</span>
+                        <span class="material-icons trip-list-header-icon">search</span>
+                    </h1>
                     <ul id="departures_list" class="scrollbar-primary">
                     </ul>
                 </div>
