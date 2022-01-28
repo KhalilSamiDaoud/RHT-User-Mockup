@@ -1,13 +1,13 @@
 import { FacilityTrip } from './facilityTrip.js';
 
 const DRAG_WINDOW_TEMPLATE =
-    '<h5 class="no-padding drag-name">{{name}} ' +
+    '<h5 class=" drag-name">{{name}} ' +
     '<a href="tel:+1-{{phone}}" class="cyan-text text-darken-1 drag-phone">{{phone}}</a>' +
     '<i class="material-icons drag-close">close</i></h5>' +
     '<div class="divider"></div>' +
     '<p><b>Trip ID:</b> {{confirmation}}</p>' +
-    '<p><b>Trip Status:</b> {{status}}</p>' +
-    '<p><b>Assigned Driver:</b> #{{driver}}</p>' +
+    '<p ><b>Trip Status:</b> {{status}}</p>' +
+    '<p><b>Assigned Driver:</b> <a href="tel:+1-{{phone}}"> #{{driver}}<i class="material-icons drag-icon">call</i></a></p>' +
     '<p><b>Assigned Vehicle:</b> #{{vehicle}}</p>' +
     '<div class="divider"></div>' +
     '<p class="drag-table-header"><b>Pick Times:</b></p>' +
@@ -93,11 +93,11 @@ class DragWindow {
             .replace('{{status}}', this.trip.status)
             .replace('{{driver}}', this.trip.driverNumber)
             .replace('{{vehicle}}', this.trip.vehicleNumber)
-            .replace('{{r_pu_time}}', this.trip.requestedTime)
-            .replace('{{s_pu_time}}', this.trip.schPUTime)
+            .replace('{{r_pu_time}}', this.trip.reqPUTime)
+            .replace('{{s_pu_time}}', this.trip.scheduledPUTime)
             .replace('{{f_pu_time}}', this.trip.forcastedPUTime)
-            .replace('{{a_do_time}}', this.trip.appointmentTime)
-            .replace('{{s_do_time}}', this.trip.schDOTime)
+            .replace('{{a_do_time}}', this.trip.reqDOTime)
+            .replace('{{s_do_time}}', this.trip.scheduledDOTime)
             .replace('{{f_do_time}}', this.trip.forcastedDOTime);
     }
 

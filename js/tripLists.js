@@ -11,19 +11,19 @@ const TRIP_TEMPLATE =
                         '<div class="trip-entry-content">' +
                             '<div class="trip-title-bar">' +
                                 '<span class="ttb-name">{{name}}</span>' +
+                                '<span class="material-icons ttb-icon">{{icon}}</span>' +
                                 '<span class="ttb-id push-right">#{{confirmation}}</span>' +
                             '</div>' +
                             '<div class="trip-status-bar">' +
                                 '<span class="tsb-status">' +
                                     '<b>{{status}}</b>' +
-                                    '<span class="material-icons" style="vertical-align: middle; margin-top: -2px;">{{status_icon}}</span>' +
                                 '</span>' +
                                 '<span class="tsb-apt push-right">Driver: {{driver}}</span>' +
                                 '<span class="tsb-apt">Apt. {{apt_time}}</span>' +
                                 '<span class="tsb-eta">Eta. {{eta}}</span>' +
                             '</div>' +
                             '<div class="trip-progress-bar">' +
-                                '<progress class="progress disabled" max="100" value="{{progress}}"></progress>' +
+                                '<progress class="progress {{prog_class}}" max="100" value="{{progress}}"></progress>' +
                             '</div>' +
                         '</div>';
 
@@ -31,12 +31,12 @@ let tripEntries = new Map();
 
 function initTripLists() {
     getArivals().forEach(trip => {
-        tripEntries.set(trip.confirmation, new facilityTripEntry(trip, ARIVALS));
+        tripEntries.set(trip.confirmation, new FacilityTripEntry(trip, ARIVALS));
     });
     ARIVALS.insertAdjacentHTML('beforeend', END_ENTRY_TEMPLATE);
 
     getDepartures().forEach(trip => {
-        tripEntries.set(trip.confirmation, new facilityTripEntry(trip, DEPARTURES));
+        tripEntries.set(trip.confirmation, new FacilityTripEntry(trip, DEPARTURES));
     });
     DEPARTURES.insertAdjacentHTML('beforeend', END_ENTRY_TEMPLATE);
 }
@@ -62,7 +62,7 @@ function clearTripLists() {
     tripEntries.clear();
 }
 
-class facilityTripEntry {
+class FacilityTripEntry {
     constructor(trip, parent) {
         this.trip = trip;
         this.parent = parent;
@@ -79,6 +79,10 @@ class facilityTripEntry {
     #constructElem() {
         this.elem = document.createElement('li');
         this.elem.classList.add('trip-entry');
+        
+        if (this.trip.tripStyleClass)
+            this.elem.classList.add(this.trip.tripStyleClass);
+
         this.elem.innerHTML = this.#formatEntry();
 
         this.elem.addEventListener('click', this.#handleClick.bind(this));
@@ -93,15 +97,14 @@ class facilityTripEntry {
     #formatEntry() {
         return TRIP_TEMPLATE
             .replace('{{name}}', this.trip.name)
+            .replace('{{icon}}', this.trip.statusIcon)
             .replace('{{confirmation}}', this.trip.confirmation)
             .replace('{{status}}', this.trip.statusMsg)
-            .replace('{{status_icon}}', this.trip.statusIcon)
-            .replace('{{apt_time}}', this.trip.scheduledTime.toLocaleTimeString([], {
-                hour: '2-digit',
-                minute: '2-digit'
-            }))
+            .replace('{{apt_time}}', this.trip.scheduledPUTime)
             .replace('{{eta}}', this.trip.eta)
             .replace('{{driver}}', this.trip.driverNumber)
+            .replace('{{progress}}', this.trip.tripProg)
+            .replace('{{prog_class}}', (this.trip.progStyleClass) ? this.trip.progStyleClass : '');
     }
 }
 

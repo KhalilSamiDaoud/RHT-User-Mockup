@@ -214,13 +214,23 @@ body {
   margin-bottom: 10px;
 }
 
-.trip-entry:hover {
+.trip-entry:hover,
+.trip-entry.cancelled-trip:hover,
+.trip-entry.finished-trip:hover {
   background-color: #d0eaff;
   cursor: pointer;
 }
 
 .trip-entry.ending-entry:hover {
   cursor: default;
+}
+
+.trip-entry.cancelled-trip {
+  background-color: #ffcdd2;
+}
+
+.trip-entry.finished-trip {
+  background-color: #c8e6c9;
 }
 
 
@@ -273,6 +283,12 @@ body {
   font-size: 24px;
 }
 
+.ttb-icon {
+  margin-left: 10px;
+  vertical-align: middle;
+  color: #757575;
+}
+
 .ttb-id {
   font-size: 16px;
   margin-right: 25px;
@@ -291,7 +307,7 @@ body {
   margin: -2px 10px 2px 0px;
   padding: 0 5px 0 5px;
   border-radius: 2px;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .tsb-eta {
@@ -300,7 +316,7 @@ body {
   margin: -2px 20px 2px 0px;
   padding: 0 5px 0 5px;
   border-radius: 2px;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .scrollbar {
@@ -335,18 +351,26 @@ body {
   width: calc(100% - 20px);
   border: none;
   margin: 5px 0;
-  height: 5px;
+  height: 10px;
   display: block;
   appearance: none;
   -webkit-appearance: none;
 }
 
-::-webkit-progress-bar {
+.progress::-webkit-progress-bar {
   background-color: #c8e6c9;
 }
 
-::-webkit-progress-value {
-  background-color: #66bb6a;
+.progress::-webkit-progress-value {
+  background-color: #43a047;
+}
+
+.progress.no-prog::-webkit-progress-bar {
+  background-color: #ef9a9a;
+}
+
+.progress.no-prog::-webkit-progress-value {
+  background-color: #ef5350;
 }
 
 .draggable {
@@ -386,6 +410,11 @@ body {
   font-size: 18px;
   margin-left: 5px;
   padding-right: 15px;
+}
+
+.drag-icon {
+  margin: 0 5px 0 5px;
+  vertical-align: middle;
 }
 
 .drag-table-header {
