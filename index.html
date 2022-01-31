@@ -12,7 +12,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
     </head>
     <body class="scrollbar-primary">
-        <nav class="nav-bar">
+        <!--large screen nav-->
+        <nav class="nav-bar hide-on-small-screens" aria-label="navigation">
             <div class="nav-button" data-tooltip="home">
                 <span class="material-icons">home</span>
             </div>
@@ -26,17 +27,58 @@
                 <span class="material-icons">info</span>
             </div>
         </nav>
+        <!--small screen nav-->
+        <nav id="side_nav" class="side-nav box-shadow" aria-label="navigation">
+            <div class="side-nav-header">
+                <div class="profile-container push-left">
+                    <span class="profile-icon material-icons">account_circle</span>
+                    <div class="profile-info">
+                        <span class="profile-name">Khalil Daoud</span>
+                        <span class="profile-type">Admin</span>
+                    </div>
+                </div>
+
+                <span id="close_side_nav" class="material-icons">close</span>
+            </div>
+
+            <a href="#">
+                <span class="material-icons">home</span>
+                <span>Home</span>
+            </a>
+            <a href="#">
+                <span class="material-icons">dashboard</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="#">
+                <span class="material-icons">settings</span>
+                <span>Settings</span>
+            </a>
+            <a href="#">
+               <span class="material-icons">info</span>
+               <span>Info</span>
+            </a>
+        </nav>
 
         <header class="header-bar">
+            <div class="show-on-small-screens">
+                <span id="open_side_nav" class="header-text text-button material-icons">menu</span>
+            </div>
+
+            <div class="show-on-small-screens push-left">
+                <span class="header-text">Arivals / Departures Monitor</span>
+            </div>
+
             <img src="media/header_logo.png" alt="RTH Logo" />
 
-            <span class="header-text material-icons">arrow_forward_ios</span>
-            <span class="header-text">Arivals / Departures</span>
+            <div class="hide-on-small-screens">
+                <span class="header-text material-icons">arrow_forward_ios</span>
+                <span class="header-text">Arivals / Departures Monitor</span>
+            </div>
 
-            <button class="text-button push-right">appointments</button>
-            <button class="text-button">alerts</button>
+            <button class="text-button push-right hide-on-small-screens">appointments</button>
+            <button class="text-button hide-on-small-screens">alerts</button>
 
-            <div class="profile-container">
+            <div class="profile-container hide-on-small-screens">
                 <div class="profile-info">
                     <span class="profile-name">Khalil Daoud</span>
                     <span class="profile-type">Admin</span>

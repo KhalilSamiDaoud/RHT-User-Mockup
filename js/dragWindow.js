@@ -57,7 +57,7 @@ class DragWindow {
 
     #constructElement() {
         this.elem = document.createElement('div');
-        this.elem.setAttribute('class', 'draggable z-depth-2');
+        this.elem.setAttribute('class', 'draggable box-shadow');
         this.elem.innerHTML = this.#formatTemplate();
 
         this.elem.addEventListener(

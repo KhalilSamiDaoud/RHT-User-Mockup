@@ -26,11 +26,7 @@ async function initFacilityTrips() {
             initTripLists();
         });
 
-    updateFacilityTrips();
-}
-
-function updateFacilityTrips() {
-    updateInterval = setInterval(async() => {
+    updateInterval = setInterval(async () => {
         await fetch('http://192.168.6.10:8082/api/TripReservation/GetFacilityTrips', {
             method: 'POST',
             mode: 'cors',
