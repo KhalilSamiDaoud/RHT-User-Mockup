@@ -6,6 +6,7 @@
         <meta charset="UTF-8">
 
         <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="css/modal.css" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +14,7 @@
     </head>
     <body class="scrollbar-primary">
         <!--large screen nav-->
-        <nav class="nav-bar hide-on-small-screens" aria-label="navigation">
+        <nav class="nav-bar hide-on-small-screens lobby-hide-off" aria-label="navigation">
             <div class="nav-button" data-tooltip="home">
                 <span class="material-icons">home</span>
             </div>
@@ -34,7 +35,7 @@
                     <span class="profile-icon material-icons">account_circle</span>
                     <div class="profile-info">
                         <span class="profile-name">Khalil Daoud</span>
-                        <span class="profile-type">Admin</span>
+                        <span class="profile-type modal-trigger" data-target="secret">Admin</span>
                     </div>
                 </div>
 
@@ -59,7 +60,7 @@
             </a>
         </nav>
 
-        <header class="header-bar">
+        <header class="header-bar lobby-hide-off">
             <div class="show-on-small-screens">
                 <span id="open_side_nav" class="header-text text-button material-icons">menu</span>
             </div>
@@ -87,13 +88,13 @@
             </div>
         </header>
 
-        <main class="main-container">
-            <div class="lists-container">
+        <main id="main_content" class="main-container">
+            <div id="lists_container" class="lists-container">
                 <div id="arivals" class="trip-list">
                     <h1 class="trip-list-header">
                         Arivals 
-                        <span class="material-icons trip-list-header-icon">settings</span>
-                        <span class="material-icons trip-list-header-icon">search</span>
+                        <span class="material-icons trip-list-header-icon lobby-hide-off">settings</span>
+                        <span class="material-icons trip-list-header-icon lobby-hide-off">search</span>
                     </h1>
                     <ul id="arivals_list" class="scrollbar-primary">
                     </ul>
@@ -102,11 +103,40 @@
                 <div id="departures" class="trip-list">
                     <h1 class="trip-list-header">
                         Departures
-                        <span class="material-icons trip-list-header-icon">settings</span>
-                        <span class="material-icons trip-list-header-icon">search</span>
+                        <span class="material-icons trip-list-header-icon lobby-hide-off">settings</span>
+                        <span class="material-icons trip-list-header-icon lobby-hide-off">search</span>
                     </h1>
                     <ul id="departures_list" class="scrollbar-primary">
                     </ul>
+                </div>
+            </div>
+
+            <div id="secret" class="modal" data-persist>
+                <div class="modal-header">
+                    <h1>Display Mode / Settings</h1>
+                </div>
+                <div class="modal-content">
+                    <div class="divider"></div>
+                    <div class="row">
+                        <button id="lobby_mode">Lobby Screen</button>
+                        <button id="desktop_mode">Desktop</button>
+                    </div>
+                    <div class="row">
+                        <label style="margin-left: 20px;" class="push-left" for="facility_id">Facility ID:
+                            <input name="facility_id" id="facility_id" type="text">
+                        </label>
+                    </div>
+                    <div class="row">
+                        <label style="margin-left: 20px;" class="push-left" for="list_select">Display list:
+                            <select name="list_select" id="list_select">
+                                <option value="both">Both</option>
+                                <option value="arivals">Arivals Only</option>
+                                <option value="departures">Departures Only</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="divider"></div>
+                    <button id="save_settings" class="close">SAVE</button>
                 </div>
             </div>
         </main>
